@@ -1,13 +1,12 @@
 {
   "name": "@zissou/hooks",
-  "version": "0.1.0",
+  "version": "0.1.8",
   "description": "React hooks for common utilities",
-  "main": "index.ts",
-  "types": "dist/index.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepublish": "tsc",
-    "publish": "npm publish",
+    "prepare": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ben Jenkins",
@@ -22,7 +21,9 @@
   "dependencies": {
     "@types/react": "^16.9.36",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react": "^7.20.0"
+  },
+  "peerDependencies": {
     "react": "^16.13.1"
   }
 }
