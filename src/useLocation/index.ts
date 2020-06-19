@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default () => {
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState<Geolocation | null>(null);
   const [error, setError] = useState(false);
 
   const handleSuccess = (position: any): void => {
