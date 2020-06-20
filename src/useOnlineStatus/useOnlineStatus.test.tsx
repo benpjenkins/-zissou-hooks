@@ -1,14 +1,17 @@
-// eslint-disable-next-line
-// import * as React from "react";
-// import useOnlineStatus from "./useOnlineStatus";
-
-// const TestApp = () => {
-//   const isOnline = useOnlineStatus();
-//   return <p>{`${isOnline}`}</p>;
-// };
+import { renderHook } from "@testing-library/react-hooks";
+import useOnlineStatus from "../useOnlineStatus";
 
 describe("useOnlineStatus", () => {
-  it("should have a sample test", () => {
-    expect(true).toBeTruthy();
+  it("should return true by default", () => {
+    const addSpy = jest
+      .spyOn(window, "addEventListener")
+      .mockImplementation(() => {});
+    const removeSpy = jest
+      .spyOn(window, "addEventListener")
+      .mockImplementation(() => {});
+    const { result } = renderHook(() => useOnlineStatus());
+    expect(result.current).toBe(true);
+    expect(addSpy).toBeTruthy();
+    expect(removeSpy).toBeTruthy();
   });
 });
